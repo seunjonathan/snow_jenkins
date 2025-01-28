@@ -14,6 +14,7 @@ pipeline {
             steps {
                 sh "dir .snowflake"
                 sh "pip install snowflake-cli --upgrade"
+                sh "snow connection list"
                 sh "snow sql --config-file=\"config.toml\" connection myconnection -q \"select count(*) from sales;\" "
 
             }

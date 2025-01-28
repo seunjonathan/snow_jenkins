@@ -1,6 +1,5 @@
 default_connection_name = "myconnection"
 
-[connections]
 [connections.myconnection]
 account = "POOGGWP-EQA42460"
 user = "testsf"
