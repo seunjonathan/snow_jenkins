@@ -12,8 +12,9 @@ pipeline {
     stages {
         stage('Run Snowflake CLI') {
             steps {
-                sh "pip install snowflake-cli --upgrade"
-                sh "snow sql -q \"select count(*) from sales;\" "
+                sh "dir .snowflake"
+                // sh "pip install snowflake-cli --upgrade"
+                // sh "snow sql -q \"select count(*) from sales;\" "
 
             }
         }
