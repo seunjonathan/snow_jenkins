@@ -6,12 +6,20 @@ pipeline {
         } 
 
     }
+    environment {
+        SNOWFLAKE_PASSWORD = credentials('SNOWFLAKE_PASSWORD') // Reference the credential ID
+    }
     stages {
-        stage('Run schemachange') {
+        stage('Run Snowflake CLI') {
             steps {
-                sh "pip install schemachange --upgrade"
-                // sh "schemachange -f migrations -a ${SF_ACCOUNT} -u ${SF_USERNAME} -r ${SF_ROLE} -w ${SF_WAREHOUSE} -d ${SF_DATABASE} -c ${SF_DATABASE}.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table"
+                sh "pip install snowflake-cli --upgrade"
+                sh "snow sql -q "select count(*) from sales;" --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh"
+
             }
         }
     }
 }
+
+
+
+                // sh "schemachange -f migrations -a ${SF_ACCOUNT} -u ${SF_USERNAME} -r ${SF_ROLE} -w ${SF_WAREHOUSE} -d ${SF_DATABASE} -c ${SF_DATABASE}.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table"
