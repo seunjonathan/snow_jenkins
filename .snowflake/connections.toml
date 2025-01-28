@@ -1,0 +1,19 @@
+[POOGGWP-EQA42460]
+account = "POOGGWP-EQA42460"
+user = "seunjonathan"
+authenticator = "snowflake"
+
+[snowjan2025]
+account = "POOGGWP-EQA42460"
+user = "seunjonathan"
+password = "Gre@tness123"
+database = "PRACTICE"
+schema = "PUBLIC"
+warehouse = "COMPUTE_WH"
+role = "ACCOUNTADMIN"
+
+[POOGGWP-EQA42460_2]
+account = "POOGGWP-EQA42460"
+user = "seunjonathan"
+authenticator = "SNOWFLAKE_JWT"
+private_key_path = "c:\\temp\\pkey.p8"
