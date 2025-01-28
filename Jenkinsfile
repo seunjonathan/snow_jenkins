@@ -6,9 +6,9 @@ pipeline {
         } 
 
     }
-    environment {
-        SNOWFLAKE_PASSWORD = credentials('SNOWFLAKE_PASSWORD') // Reference the credential ID
-    }
+    // environment {
+    //     SNOWFLAKE_PASSWORD = credentials('SNOWFLAKE_PASSWORD') // Reference the credential ID
+    // }
     stages {
         stage('Run Snowflake CLI') {
             steps {
