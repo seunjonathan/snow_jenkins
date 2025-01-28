@@ -13,7 +13,7 @@ pipeline {
         stage('Run Snowflake CLI') {
             steps {
                 sh "pip install snowflake-cli --upgrade"
-                sh "snow sql --config-file config.toml connection myconnection -q \"select count(*) from sales;\" --account POOGGWP-EQA42460 --user testsf --database practice --schema public --role accountadmin --warehouse compute_wh"
+                sh "snow sql -q \"select count(*) from sales;\" "
 
             }
         }

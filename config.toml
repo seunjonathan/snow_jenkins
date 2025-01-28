@@ -1,7 +1,0 @@
-[connections.myconnection]
-account = "myaccount"
-user = "jondoe"
-password = "test@1TEST"
-warehouse = "my-wh"
-database = "my_db"
-schema = "my_schema"
