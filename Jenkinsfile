@@ -58,6 +58,7 @@ pipeline {
                 // }
                 sh "snow connection list"
                 sh "snow connection test"
+                sh "snow sql -q \"select count(*) from sales;\" "
                 // sh "snow sql -q \"select count(*) from sales;\" --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password ${params.SNOWFLAKE_PASSWORD} "
             }
             }

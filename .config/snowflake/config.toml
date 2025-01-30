@@ -1,4 +1,10 @@
 default_connection_name = "amyconnection"
 
 [connections.amyconnection]
+account = "POOGGWP-EQA42460"
 user = "testsf"
+password = "test@1TEST"
+database = "PRACTICE"
+schema = "PUBLIC"
+warehouse = "COMPUTE_WH"
+role = "ACCOUNTADMIN"
