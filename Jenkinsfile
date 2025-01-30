@@ -25,7 +25,8 @@ pipeline {
 
         stage('Run Snowflake CLI') {
             steps {
-                // sh "pip install snowflake-cli --upgrade"
+                sh "pip install snowflake-cli --upgrade"
+                sh "snow --config-file connections.toml"
                 // withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD1')])
                 // {
                 // // sh "dir .snowflake"
