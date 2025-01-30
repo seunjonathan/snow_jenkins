@@ -8,16 +8,16 @@ pipeline {
     stages {
         stage('Echo SF_ROLE') {
             steps {
-                echo "The value of SF_ROLE is: ${params.SF_ROLE}"
+                echo "The value of SF_ROLE is: ${params.SNOWFLAKE_ROLE}"
             }
         }
 
         stage('Run Snowflake CLI') {
             steps {
                 sh "dir .snowflake"
-                // sh "pip install snowflake-cli --upgrade"
+                sh "pip install snowflake-cli --upgrade"
                 // sh "snow connection list"
-                // sh "snow sql --config-file=\"config.toml\" connection myconnection -q \"select count(*) from sales;\" "
+                sh "snow sql -q \"select count(*) from sales;\" "
             }
         }
     }
