@@ -9,12 +9,16 @@ pipeline {
     // environment {
     //     SNOWFLAKE_PASSWORD = credentials('SNOWFLAKE_PASSWORD') // Reference the credential ID
     // }
-    stage('Echo SF_ROLE') {
-            steps {
-                echo "The value of SF_ROLE is: ${env.SF_ROLE}"
-            }
+
         }
     stages {
+        stage('Echo SF_ROLE') {
+            steps {
+                echo "The value of SF_ROLE is: ${params.SF_ROLE}"
+            }
+        }
+
+
         stage('Run Snowflake CLI') {
             steps {
                 sh "dir .snowflake"
