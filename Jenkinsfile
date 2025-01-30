@@ -14,12 +14,12 @@ pipeline {
 
         stage('Run Snowflake CLI') {
             steps {
-                // sh "pip install snowflake-cli --upgrade"
+                sh "pip install snowflake-cli --upgrade"
                 withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD')])
                 {
                 // sh "dir .snowflake"
 
-                sh "snow connection add -n myconnection2 --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password ${params.SNOWFLAKE_PASSWORD}"
+                sh "snow connection add -n myconnection2 --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password $SNOWFLAKE_PASSWORD"
                 }
                 sh "snow connection list"
                 sh "snow connection test -c myconnection2"
