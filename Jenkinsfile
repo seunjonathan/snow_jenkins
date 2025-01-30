@@ -20,6 +20,7 @@ pipeline {
     stages {
         stage('Echo Username') {
             steps {
+                echo "The value of SF_ROLE is: ${params.SNOWFLAKE_ROLE}"
                 script {
                     // Get the current user
                     CURRENT_USER = sh(script: 'whoami', returnStdout: true).trim()
@@ -35,6 +36,7 @@ pipeline {
 
         stage('Run Snowflake CLI') {
             steps {
+                
                 script {
                 
                 sh """
