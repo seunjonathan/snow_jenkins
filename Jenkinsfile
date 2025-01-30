@@ -44,7 +44,7 @@ pipeline {
                 snow --info
                 snow connection list
                 snow connection test
-                snow sql -q \"select count(*) from seaspan.public.t_job;\"
+                snow sql -f a.sql
                 """
             }
             }
