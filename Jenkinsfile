@@ -26,15 +26,15 @@ pipeline {
         stage('Run Snowflake CLI') {
             steps {
                 sh "pip install snowflake-cli --upgrade"
-                sh "snow --config-file connections.toml"
+                sh "snow sql --config-file connections.toml -q \"select count(*) from sales;\" "
                 // withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD1')])
                 // {
                 // // sh "dir .snowflake"
 
                 // sh "snow --config-file connections.toml"
                 // }
-                sh "snow connection list"
-                sh "snow connection test -c snowjan2025"
+                // sh "snow connection list"
+                // sh "snow connection test -c snowjan2025"
                 // sh "snow sql -q \"select count(*) from sales;\" --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password ${params.SNOWFLAKE_PASSWORD} "
             }
         }
