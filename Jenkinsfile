@@ -43,7 +43,7 @@ pipeline {
                 pip install snowflake-cli --upgrade
                 """
 
-                 withCredentials([string(credentialsId: 'snowflake_password', variable: 'SNOWFLAKE_PASSWORD')]) {
+                 withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD')]) {
                         env.SNOWFLAKE_CONNECTIONS_MYCONNECTION_PASSWORD = SNOWFLAKE_PASSWORD
                  }
                 
