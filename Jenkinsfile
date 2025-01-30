@@ -9,8 +9,12 @@ pipeline {
         stage('Echo SF_ROLE') {
             steps {
                 echo "The value of SF_ROLE is: ${params.SNOWFLAKE_ROLE}"
-                  sh """
-                chown $USER connections.toml
+
+                CURRENT_USER = sh(script: 'whoami', returnStdout: true).trim()
+                echo "Current user: ${CURRENT_USER}
+
+                sh """
+                chown ${CURRENT_USER} connections.toml
                 chmod 0600 connections.toml
                 ls -l connections.toml
                 """
