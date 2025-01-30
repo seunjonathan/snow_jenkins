@@ -9,18 +9,23 @@ pipeline {
         stage('Echo SF_ROLE') {
             steps {
                 echo "The value of SF_ROLE is: ${params.SNOWFLAKE_ROLE}"
+                  sh """
+                chown $USER connections.toml
+                chmod 0600 connections.toml
+                ls -l connections.toml
+                """
             }
         }
 
         stage('Run Snowflake CLI') {
             steps {
-                sh "pip install snowflake-cli --upgrade"
-                withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD1')])
-                {
-                // sh "dir .snowflake"
+                // sh "pip install snowflake-cli --upgrade"
+                // withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD1')])
+                // {
+                // // sh "dir .snowflake"
 
-                sh "snow --config-file connections.toml"
-                }
+                // sh "snow --config-file connections.toml"
+                // }
                 sh "snow connection list"
                 sh "snow connection test -c snowjan2025"
                 // sh "snow sql -q \"select count(*) from sales;\" --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password ${params.SNOWFLAKE_PASSWORD} "
