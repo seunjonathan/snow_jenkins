@@ -11,7 +11,7 @@ pipeline {
                 echo "The value of SF_ROLE is: ${params.SNOWFLAKE_ROLE}"
 
                 CURRENT_USER = sh(script: 'whoami', returnStdout: true).trim()
-                echo "Current user: ${CURRENT_USER}
+                echo "Current user: ${CURRENT_USER}"
 
                 sh """
                 chown ${CURRENT_USER} connections.toml
