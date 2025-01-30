@@ -29,6 +29,7 @@ pipeline {
                 pip install snowflake-cli --upgrade
                 snow --config-file .config/snowflake/config.toml
                 snow --info
+                snow connection test
                 """
                 // sh "snow --config-file config.toml connection myconnection"
                 // sh "snow connection set-default snowjan2025"
