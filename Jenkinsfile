@@ -45,7 +45,7 @@ where will i use withCredentials here
                 pip install snowflake-cli --upgrade
                 """
 
-                 withCredentials([string(credentialsId: 'SNOWFLAKE_PASSWORD_ID', variable: 'SNOWFLAKE_PASSWORD')]) {
+                 withCredentials([string(credentialsId: 'snowflake_password', variable: 'SNOWFLAKE_PASSWORD')]) {
                         env.SNOWFLAKE_CONNECTIONS_MYCONNECTION_PASSWORD = SNOWFLAKE_PASSWORD
                  }
                 
