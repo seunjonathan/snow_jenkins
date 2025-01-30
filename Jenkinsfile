@@ -25,7 +25,7 @@ pipeline {
 
         stage('Run Snowflake CLI') {
             steps {
-                sh """"
+                sh """
                 pip install snowflake-cli --upgrade
                 snow --config-file config.toml
                 snow --info
