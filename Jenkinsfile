@@ -16,7 +16,7 @@ pipeline {
             steps {
                 // sh "dir .snowflake"
                 sh "pip install snowflake-cli --upgrade"
-                sh "snow connection add -n myconnection2 --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password ${params.SNOWFLAKE_PASSWORD} --no-interactive"
+                sh "snow connection add -n myconnection2 --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password ${params.SNOWFLAKE_PASSWORD}"
                 sh "snow connection list"
                 sh "snow connection test -c myconnection2"
                 // sh "snow sql -q \"select count(*) from sales;\" --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password ${params.SNOWFLAKE_PASSWORD} "
