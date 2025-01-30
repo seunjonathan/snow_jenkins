@@ -52,7 +52,7 @@ pipeline {
                 // sh "snow sql -q \"select count(*) from sales;\" "
                 // withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD1')])
                 // {
-                sh "snow info"
+                sh "snow --info"
 
                 // sh "snow --config-file connections.toml"
                 // }
