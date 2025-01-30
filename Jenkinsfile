@@ -16,19 +16,23 @@ pipeline {
                     echo "Current user: ${CURRENT_USER}"
                 }
                 sh """
-                chown ${CURRENT_USER} connections.toml
-                chmod 0600 connections.toml
-                ls -l connections.toml
+                chown ${CURRENT_USER} config.toml
+                chmod 0600 config.toml
+                ls -l config.toml
                 """
             }
         }
 
         stage('Run Snowflake CLI') {
             steps {
-                sh "pip install snowflake-cli --upgrade"
-                sh "snow --config-file connections.toml "
-                sh "snow connection set-default snowjan2025"
-                sh "snow sql -q \"select count(*) from sales;\" "
+                sh """"
+                pip install snowflake-cli --upgrade
+                snow --config-file config.toml
+                snow --info
+                """
+                // sh "snow --config-file config.toml connection myconnection"
+                // sh "snow connection set-default snowjan2025"
+                // sh "snow sql -q \"select count(*) from sales;\" "
                 // withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD1')])
                 // {
                 // // sh "dir .snowflake"
