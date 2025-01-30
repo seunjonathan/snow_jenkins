@@ -19,10 +19,10 @@ pipeline {
                 {
                 // sh "dir .snowflake"
 
-                sh "snow connection add -n myconnection2 --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh "
+                sh "snow --config-file connections.toml"
                 }
                 sh "snow connection list"
-                sh "snow connection test -c myconnection2"
+                sh "snow connection test -c snowjan2025"
                 // sh "snow sql -q \"select count(*) from sales;\" --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password ${params.SNOWFLAKE_PASSWORD} "
             }
         }
