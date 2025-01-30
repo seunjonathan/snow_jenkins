@@ -19,7 +19,7 @@ pipeline {
                 {
                 // sh "dir .snowflake"
 
-                sh "snow connection add -n myconnection2 --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password $SNOWFLAKE_PASSWORD1"
+                sh "snow connection add -n myconnection2 --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh "
                 }
                 sh "snow connection list"
                 sh "snow connection test -c myconnection2"
