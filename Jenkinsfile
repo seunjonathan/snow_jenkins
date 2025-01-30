@@ -16,9 +16,9 @@ pipeline {
                     echo "Current user: ${CURRENT_USER}"
                 }
                 sh """
-                chown ${CURRENT_USER} config.toml
-                chmod 0600 config.toml
-                ls -l config.toml
+                chown ${CURRENT_USER} /root/.config/snowflake/config.toml
+                chmod 0600 /root/.config/snowflake/config.toml
+                ls -l /root/.config/snowflake/config.toml
                 """
             }
         }
