@@ -27,7 +27,7 @@ pipeline {
             steps {
                 sh """
                 pip install snowflake-cli --upgrade
-                snow --config-file /root/.config/snowflake/config.toml
+                snow --config-file /.config/snowflake/config.toml
                 snow --info
                 """
                 // sh "snow --config-file config.toml connection myconnection"
