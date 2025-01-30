@@ -44,7 +44,7 @@ pipeline {
                 snow --info
                 snow connection list
                 snow connection test
-                snow sql -f a.sql
+                snow sql -f deploy/query.sql
                 """
             }
             }
