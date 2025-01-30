@@ -3,7 +3,7 @@ default_connection_name = "myconnection"
 [connections.myconnection]
 account = "POOGGWP-EQA42460"
 user = "testsf"
-password = "test@1TEST"
+password = "Gre@tness123"
 database = "PRACTICE"
 schema = "PUBLIC"
 warehouse = "COMPUTE_WH"
