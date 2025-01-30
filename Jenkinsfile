@@ -13,7 +13,7 @@ pipeline {
         SNOWFLAKE_CONNECTIONS_MYCONNECTION_ROLE = "ACCOUNTADMIN"
         SNOWFLAKE_CONNECTIONS_MYCONNECTION_WAREHOUSE = "COMPUTE_WH"
         SNOWFLAKE_CONNECTIONS_MYCONNECTION_SCHEMA = "PUBLIC"
-        SNOWFLAKE_CONNECTIONS_MYCONNECTION_DATABASE = "PRACTICE"
+        SNOWFLAKE_CONNECTIONS_MYCONNECTION_DATABASE = "SEASPAN"
     }
 
 
@@ -43,9 +43,9 @@ pipeline {
                 pip install snowflake-cli --upgrade
                 """
 
-                //  withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD')]) {
-                //         env.SNOWFLAKE_CONNECTIONS_MYCONNECTION_PASSWORD = SNOWFLAKE_PASSWORD
-                //  }
+                 withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD')]) {
+                        env.SNOWFLAKE_CONNECTIONS_MYCONNECTION_PASSWORD = SNOWFLAKE_PASSWORD
+                 }
                 
                 // sh "snow --config-file config.toml connection myconnection"
                 // sh "snow connection set-default snowjan2025"
@@ -57,8 +57,8 @@ pipeline {
                 // sh "snow --config-file connections.toml"
                 // }
                 sh "snow connection list"
-                sh "snow connection test"
-                sh "snow sql -q \"select count(*) from sales;\" "
+                // sh "snow connection test"
+                // sh "snow sql -q \"select count(*) from t_user;\" "
                 // sh "snow sql -q \"select count(*) from sales;\" --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password ${params.SNOWFLAKE_PASSWORD} "
             }
             }
