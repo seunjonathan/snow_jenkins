@@ -8,13 +8,7 @@ pipeline {
 
     environment {
         // Static environment variables
-        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_ACCOUNT = "POOGGWP-EQA42460"
-        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_USER = "SEUNJONATHAN"
-        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_ROLE = "ACCOUNTADMIN"
-                SNOWFLAKE_CONNECTIONS_MYCONNECTION_HOME = ".snowflake"
-        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_WAREHOUSE = "COMPUTE_WH"
-        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_SCHEMA = "PUBLIC"
-        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_DATABASE = "SEASPAN"
+        SNOWFLAKE_CONNECTIONS_MYCONNECTION_HOME = ".snowflake"
     }
 
 
@@ -42,9 +36,9 @@ pipeline {
                 
                 sh "pip install snowflake-cli --upgrade"
 
-                //  withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD')]) {
-                //         env.SNOWFLAKE_CONNECTIONS_MYCONNECTION_PASSWORD = SNOWFLAKE_PASSWORD
-                //  }
+                 withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD')]) {
+                        env.SNOWFLAKE_CONNECTIONS_MYCONNECTION_PASSWORD = SNOWFLAKE_PASSWORD
+                 }
                 
                 sh """
                 snow --info
