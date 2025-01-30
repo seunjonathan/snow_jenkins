@@ -8,12 +8,12 @@ pipeline {
 
     environment {
         // Static environment variables
-        SNOWFLAKE_CONNECTIONS_MYCONNECTION_ACCOUNT = "POOGGWP-EQA42460"
-        SNOWFLAKE_CONNECTIONS_MYCONNECTION_USER = "SEUNJONATHAN"
+        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_ACCOUNT = "POOGGWP-EQA42460"
+        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_USER = "SEUNJONATHAN"
         SNOWFLAKE_CONNECTIONS_MYCONNECTION_ROLE = "ACCOUNTADMIN"
-        SNOWFLAKE_CONNECTIONS_MYCONNECTION_WAREHOUSE = "COMPUTE_WH"
-        SNOWFLAKE_CONNECTIONS_MYCONNECTION_SCHEMA = "PUBLIC"
-        SNOWFLAKE_CONNECTIONS_MYCONNECTION_DATABASE = "SEASPAN"
+        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_WAREHOUSE = "COMPUTE_WH"
+        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_SCHEMA = "PUBLIC"
+        // SNOWFLAKE_CONNECTIONS_MYCONNECTION_DATABASE = "SEASPAN"
     }
 
 
@@ -49,7 +49,7 @@ pipeline {
                 snow --info
                 snow connection list
                 snow connection test
-                snow sql -q \"select count(*) from t_user;\"
+                snow sql -q \"select count(*) from sales;\"
                 """
             }
             }
