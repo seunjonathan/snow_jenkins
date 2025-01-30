@@ -5,6 +5,22 @@ pipeline {
             args '--user 0:0'
         } 
     }
+
+where will i use withCredentials here
+
+    environment {
+        // Static environment variables
+        SNOWFLAKE_CONNECTIONS_MYCONNECTION_ACCOUNT = "POOGGWP-EQA42460"
+        SNOWFLAKE_CONNECTIONS_MYCONNECTION_USER = "SEUNJONATHAN"
+        SNOWFLAKE_CONNECTIONS_MYCONNECTION_ROLE = "ACCOUNTADMIN"
+        SNOWFLAKE_CONNECTIONS_MYCONNECTION_WAREHOUSE: "COMPUTE_WH"
+        SNOWFLAKE_CONNECTIONS_MYCONNECTION_SCHEMA: "PUBLIC"
+        SNOWFLAKE_CONNECTIONS_MYCONNECTION_DATABASE: "PRACTICE"
+        SNOWFLAKE_CONNECTIONS_MYCONNECTION_PASSWORD: $SNOWFLAKE_PASSWORD
+
+    }
+
+
     stages {
         stage('Echo SF_ROLE') {
             steps {
@@ -27,16 +43,18 @@ pipeline {
             steps {
                 sh """
                 pip install snowflake-cli --upgrade
-                snow --config-file .config/snowflake/config.toml
-                snow --info
-                snow connection test
                 """
+
+                 withCredentials([string(credentialsId: 'SNOWFLAKE_PASSWORD_ID', variable: 'SNOWFLAKE_PASSWORD')]) {
+                        env.SNOWFLAKE_CONNECTIONS_MYCONNECTION_PASSWORD = SNOWFLAKE_PASSWORD
+                 }
+                
                 // sh "snow --config-file config.toml connection myconnection"
                 // sh "snow connection set-default snowjan2025"
                 // sh "snow sql -q \"select count(*) from sales;\" "
                 // withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD1')])
                 // {
-                // // sh "dir .snowflake"
+                sh "snow info"
 
                 // sh "snow --config-file connections.toml"
                 // }
