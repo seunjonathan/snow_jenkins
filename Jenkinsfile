@@ -6,8 +6,6 @@ pipeline {
         } 
     }
 
-where will i use withCredentials here
-
     environment {
         // Static environment variables
         SNOWFLAKE_CONNECTIONS_MYCONNECTION_ACCOUNT = "POOGGWP-EQA42460"
