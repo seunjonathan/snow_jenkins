@@ -56,7 +56,7 @@ pipeline {
 
                 // sh "snow --config-file connections.toml"
                 // }
-                // sh "snow connection list"
+                sh "snow connection list"
                 // sh "snow connection test -c snowjan2025"
                 // sh "snow sql -q \"select count(*) from sales;\" --account POOGGWP-EQA42460 --user SEUNJONATHAN --database practice --schema public --role accountadmin --warehouse compute_wh --password ${params.SNOWFLAKE_PASSWORD} "
             }
