@@ -18,20 +18,20 @@ pipeline {
 
 
     stages {
-        // stage('Echo SF_ROLE') {
-        //     steps {
-        //         script {
-        //             // Get the current user
-        //             CURRENT_USER = sh(script: 'whoami', returnStdout: true).trim()
-        //             echo "Current user: ${CURRENT_USER}"
-        //         }
-        //         sh """
-        //         chown ${CURRENT_USER} .config/snowflake/config.toml
-        //         chmod 0600 .config/snowflake/config.toml
-        //         ls -l .config/snowflake/config.toml
-        //         """
-        //     }
-        // }
+        stage('Echo Username') {
+            steps {
+                script {
+                    // Get the current user
+                    CURRENT_USER = sh(script: 'whoami', returnStdout: true).trim()
+                    echo "Current user: ${CURRENT_USER}"
+                }
+                sh """
+                chown ${CURRENT_USER} .config/snowflake/config.toml
+                chmod 0600 .config/snowflake/config.toml
+                ls -l .config/snowflake/config.toml
+                """
+            }
+        }
 
         stage('Run Snowflake CLI') {
             steps {
