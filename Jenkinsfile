@@ -4,11 +4,8 @@ pipeline {
             image "python:3.8"
             args '--user 0:0'
         } 
-
     }
-    // environment {
-    //     SNOWFLAKE_PASSWORD = credentials('SNOWFLAKE_PASSWORD') // Reference the credential ID
-    // }
+
 
         }
     stages {
@@ -29,7 +26,7 @@ pipeline {
             }
         }
     }
-}
+// }
 
 
 
