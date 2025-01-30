@@ -26,7 +26,9 @@ pipeline {
         stage('Run Snowflake CLI') {
             steps {
                 sh "pip install snowflake-cli --upgrade"
-                sh "snow sql --config-file connections.toml -q \"select count(*) from sales;\" "
+                sh "snow --config-file connections.toml "
+                sh "snow connection set-default snowjan2025"
+                sh "snow sql -q \"select count(*) from sales;\" "
                 // withCredentials([string(credentialsId: 'snowflake-password', variable: 'SNOWFLAKE_PASSWORD1')])
                 // {
                 // // sh "dir .snowflake"
