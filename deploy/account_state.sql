@@ -14,4 +14,4 @@ Create tag if not exists SLF_ADMIN_ALL.MONITORING.environment;
 
 
 // WHs
-create warehouse if not exists XS_WH_DEV comment ='wokload';
+create or alter warehouse XS_WH_DEV comment ='wokllload';
