@@ -1,7 +1,7 @@
 default_connection_name = "myconnection"
 
 [connections.myconnection]
-account = "POOGGWP-EQA42460"
+account = "mszvisn-web31075"
 user = "seunjonathan"
 warehouse = "COMPUTE_WH"
 role = "ACCOUNTADMIN"
